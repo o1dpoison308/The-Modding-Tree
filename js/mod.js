@@ -1,11 +1,11 @@
 let modInfo = {
-	name: "占位符 Tree",
+	name: "占位符Tree",
 	author: "oldpoison",
 	pointsName: "Aur光",
 	modFiles: ["layers.js", "tree.js"],
 
-	discordName: "dc名字",
-	discordLink: "dc链接",
+	discordName: "o1dpoison308",
+	discordLink: "dc链接，上面的",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }

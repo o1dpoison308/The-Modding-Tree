@@ -1,7 +1,7 @@
 let modInfo = {
 	name: "占位符Tree",
 	author: "oldpoison",
-	pointsName: "Aur光",
+	pointsName: "Aur",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "o1dpoison308",
@@ -13,7 +13,7 @@ let modInfo = {
 // Set your version in num and name
 let VERSION = {
 	num: "0.0.0",
-	name: "Ain无",
+	name: "Malkuth update",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -42,7 +42,11 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+	if (hasUpgrade('m', 11)) gain = gain.times(2)
+	if (hasUpgrade('m', 12)) gain = gain.times(upgradeEffect('m', 12))
+	if (hasUpgrade('m', 13)) gain = gain.times(upgradeEffect('m', 13))
 	return gain
+
 }
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
@@ -51,6 +55,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
+
 ]
 
 // Determines when the game "ends"

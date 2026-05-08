@@ -1,15 +1,15 @@
-addLayer("p", {
+addLayer("m", {
     name: "Malkuth", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "P", // This appears on the layer's node. Default is the id with the first letter capitalized
+    symbol: "M", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#4BDC13",
-    requires: new Decimal(10), // Can be a function that takes requirement increases into account
-    resource: "prestige points", // Name of prestige currency
-    baseResource: "points", // Name of resource prestige is based on
+    color: "#808000",
+    requires: new Decimal(5), // Can be a function that takes requirement increases into account
+    resource: "Physical Matter", // Name of prestige currency
+    baseResource: "Aur", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
@@ -22,7 +22,38 @@ addLayer("p", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "m", description: "M: Reset for Physical Matter", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+    upgrades: {
+        11: {
+        title: "双倍",
+        description: "点数获取翻倍",
+        cost: new Decimal(1),
+        },
+        12: {
+        title: "快一些",
+        description: "基于PM，Aur获取更快",
+        cost: new Decimal(2),
+            effect() {
+        return player[this.layer].points.add(1).pow(0.5)
+        },
+        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        },
+        13: {
+        title: "加速",
+        description: "基于Aur，Aur获取更快",
+        cost: new Decimal(5),
+            effect() {
+        return player.points.add(1).pow(0.15)
+        },
+            gainMult() {
+        let mult = new Decimal(1)
+        if (hasUpgrade('m', 13)) mult = mult.times(upgradeEffect('m', 13))
+        return mult
+        },
+        },
+
+
+    }
 })

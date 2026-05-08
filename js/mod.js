@@ -1,19 +1,19 @@
 let modInfo = {
-	name: "The ??? Tree",
-	author: "nobody",
-	pointsName: "points",
+	name: "占位符 Tree",
+	author: "oldpoison",
+	pointsName: "Aur光",
 	modFiles: ["layers.js", "tree.js"],
 
-	discordName: "",
-	discordLink: "",
+	discordName: "dc名字",
+	discordLink: "dc链接",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.0.0",
+	name: "Ain无",
 }
 
 let changelog = `<h1>Changelog:</h1><br>

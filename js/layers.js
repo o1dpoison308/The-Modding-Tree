@@ -1,3 +1,19 @@
+/*
+                     
+   mmmmmmm    mmmmmmm   
+ mm:::::::m  m:::::::mm 
+m::::::::::mm::::::::::m
+m::::::::::::::::::::::m
+m:::::mmm::::::mmm:::::m
+m::::m   m::::m   m::::m
+m::::m   m::::m   m::::m
+m::::m   m::::m   m::::m
+m::::m   m::::m   m::::m
+m::::m   m::::m   m::::m
+m::::m   m::::m   m::::m
+mmmmmm   mmmmmm   mmmmmm
+                    
+*/
 addLayer("m", {
     name: "Malkuth", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "M", // This appears on the layer's node. Default is the id with the first letter capitalized
@@ -59,14 +75,13 @@ addLayer("m", {
 
 addLayer("p", {
     startData() { return {                  // startData is a function that returns default data for a layer. 
-        
         unlocked: false,                     // You can add more variables here to add them to your layer.
         points: new Decimal(0),             // "points" is the internal name for the main resource of the layer.
     }},                     // Returns a bool for if this layer's node should be visible in the tree.
     color: "#4BDC13",                       // The color for this layer, which affects many elements.
     resource: "点数名字",            // The name of this layer's main prestige resource.
     row: 1,                                 // The row this layer is on (0 is the first row).
-
+    requires() { return new Decimal(100) },          // A function that returns the requirement for resetting the layer.
     baseResource: "Aur",                 // The name of the resource your prestige gain is based on.
     baseAmount() { return player.points },  // A function to return the current amount of baseResource.
 

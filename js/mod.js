@@ -5,7 +5,7 @@ let modInfo = {
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "o1dpoison308",
-	discordLink: "dc链接，上面的",
+	discordLink: "https://space.bilibili.com/176828645?spm_id_from=333.1007.0.0",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }

@@ -59,10 +59,10 @@ addLayer("m", {
 
 addLayer("p", {
     startData() { return {                  // startData is a function that returns default data for a layer. 
+        
         unlocked: false,                     // You can add more variables here to add them to your layer.
         points: new Decimal(0),             // "points" is the internal name for the main resource of the layer.
-    }},
-
+    }},                     // Returns a bool for if this layer's node should be visible in the tree.
     color: "#4BDC13",                       // The color for this layer, which affects many elements.
     resource: "点数名字",            // The name of this layer's main prestige resource.
     row: 1,                                 // The row this layer is on (0 is the first row).
